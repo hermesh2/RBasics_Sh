@@ -1,13 +1,19 @@
-
 # S Basics ----------------------------------------------------------------
+if(! require("rjson")){
+  install.packages("rjson")
+}
+lbrary("rjson")
 
-needed_script <- list( "dplyr", "data.table")
+list_script <- readLines(con = "Data/00_Initial.json")  %>% fromJSON() 
+needed_script <- list_script$needed_script
 lapply(X = needed_script, FUN = function(x){
   if( !x %in% installed.packages() ){
     install.packages(x)
   }
   library(x, character.only = TRUE)
 })
-rm(list = ls());gc()
 
+dir_script <- list_script$dir_script
+setwd(dir = dir_script)
+rm(list = ls());gc()
 # E Basics ----------------------------------------------------------------
