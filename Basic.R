@@ -2,9 +2,9 @@
 if(! require("rjson")){
   install.packages("rjson")
 }
-lbrary("rjson")
+library("rjson")
 
-list_script <- readLines(con = "Data/00_Initial.json")  %>% fromJSON() 
+list_script <- fromJSON(readLines(con = "Data/00_Initial.json") ) 
 needed_script <- list_script$needed_script
 lapply(X = needed_script, FUN = function(x){
   if( !x %in% installed.packages() ){
