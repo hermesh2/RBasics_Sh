@@ -44,9 +44,9 @@ cleanNonEnglishCharacters <-
                 )
     )
     print(paste0( dir_script, file2read_only_English_Char))
-    data_Aux <- fread(input = file.path( dir_script,"Data" ,file2read_only_English_Char), sep = sep_char, header = TRUE, stringsAsFactors = TRUE, verbose = TRUE, 
+    data_Aux <- fread(input = file.path( dir_script, "Data", file2read_only_English_Char), sep = sep_char, header = TRUE, stringsAsFactors = TRUE, verbose = TRUE, 
                       integer64 = "double", dec = decimal_char, encoding = encoding_char, showProgres = TRUE, data.table = TRUE, na.strings = na_strings_char )
-    unlink(x = file.path(dir_script, file2read_only_English_Char) )
+    unlink(x = file.path(dir_script, "Data", file2read_only_English_Char) )
     return( data_Aux )
   }
 
