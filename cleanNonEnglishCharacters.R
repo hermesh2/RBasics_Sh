@@ -1,6 +1,10 @@
 
 cleanNonEnglishCharacters <- 
   function(dir_script, file2read, decimal_char = "," , sep_char =";", encoding_char = "UTF-8", na_strings_char = c(",,", "NA", "N/A", "null", "_")){
+    # dir script donde esta el fichero principal. Ha de tener una carpeta Data donde se guardaran los datos
+    # file2read el nombre del csv a leer. Sin indicar la ruta. Ha de estar dentro de Data
+    # Retorna la base de datos limpia de caracteres no ingleses (En esta version pienso en castellano)
+    
     
     file2read_only_English_Char <- paste0( gsub(pattern = ".csv", replacement = "", x = file2read), "_only_English_Char.csv")
     system(paste0(
